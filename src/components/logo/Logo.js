@@ -4,6 +4,7 @@ const Logo = (props)=>{
   const LogoWrapper = styled.div`
     display:flex;
     align-items:center;
+    margin-left:10px;
 
   `;
   const LogoTitle = styled.h2`
