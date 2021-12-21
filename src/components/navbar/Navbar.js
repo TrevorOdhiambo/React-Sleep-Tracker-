@@ -4,10 +4,6 @@ import Logo from '../logo/Logo'
 import NavList from './NavList'
 import Accounts from './Accounts'
 
-import useMediaQuery from 'react-responsive'
-import DeviceSize from '../responsive/index'
-import MobileNavList from './mobileNavList'
-
 
 const NavbarContainer = styled.div`
 width:100%;
@@ -31,18 +27,17 @@ display:flex;
 `;
 
 const Navbar = (props)=>{
-  const isMobile = useMediaQuery({ maxWidth: 768 })
+ 
   return(
       <NavbarContainer>
         <LeftSection>
           <Logo/>
         </LeftSection>
         <MiddleSection>
-          {!isMobile && <NavList/>}
+         <NavList/>
         </MiddleSection>
         <RightSection>
-          {!isMobile && <Accounts/>}
-          {isMobile && <MobileNavList/>}
+         <Accounts/>
         </RightSection>
       </NavbarContainer>
   )
