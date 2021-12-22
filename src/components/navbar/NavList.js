@@ -12,6 +12,17 @@ const NavlinkWrapper = styled.ul`
   display:flex;
   list-style:none;
 
+  // @media screen and (max-width:768px){
+  //   overflow:hidden;
+  //   flex-direction:column;
+  //   position:fixed;
+  //   top:80px;
+  //   left:0;
+  //   width:100%;
+  
+  // }
+
+
 `;
 
 const NavlinkItem = styled.li`

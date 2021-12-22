@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components'
 import Logo from '../logo/Logo'
 import NavList from './NavList'
@@ -20,10 +20,54 @@ display:flex;
 `;
 const MiddleSection = styled.div`
 display:flex;
+
+@media screen and (max-width:768px){
+  overflow:hidden;
+  flex-direction:column;
+  position:fixed;
+  top:80px;
+  left:0;
+
+  max-height : ${({isOpen})=>(isOpen ? "100vh" : "0")};
+  transition:max-height 0.3s ease-in;
+  width:100%;
+
+}
 `;
 const RightSection = styled.div`
 display:flex;
 
+@media screen and (max-width:768px){
+  overflow:hidden;
+  flex-direction:column;
+  position:fixed;
+  top:80px;
+  left:0;
+
+  max-height : ${({isOpen})=>(isOpen ? "100vh" : "0")};
+  transition:max-height 0.3s ease-in;
+  width:100%;
+
+}
+`;
+const Hamburger = styled.div`
+  display;none;
+  flex-direction:column;
+  margin-right:40px;
+  cursor:pointer;
+
+  span{
+
+    height:5px;
+    width:25px;
+    background:teal;
+    margin-bottom:4px;
+    border-radius:10px;
+  }
+
+  @media screen and (max-width:768px){
+    display:flex;
+  }
 `;
 
 const Navbar = (props)=>{
@@ -33,12 +77,15 @@ const Navbar = (props)=>{
         <LeftSection>
           <Logo/>
         </LeftSection>
-        <MiddleSection>
-         <NavList/>
+        
+        <MiddleSection >
+         <NavList />
         </MiddleSection>
-        <RightSection>
-         <Accounts/>
-        </RightSection>
+        <Hamburger >
+          <span />
+          <span />
+          <span />
+        </Hamburger>
       </NavbarContainer>
   )
 }
