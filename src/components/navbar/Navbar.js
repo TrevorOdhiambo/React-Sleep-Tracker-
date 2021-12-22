@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import {BrowserRouter,Switch,Link,Route} from "react-router-dom"
+import About from '../About/About'
+// import Hiw from '../HowItWorks/Hiw'
+// import SleepQuiz from '../SleepQuiz/SleepQuiz'
+// import SleepSounds from '../SleepSounds/SleepSounds'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
+    <BrowserRouter>
     <Nav>
       <Logo href="">
        Sleepy
@@ -14,21 +19,40 @@ const Navbar = () => {
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink onClick={() => setIsOpen(!isOpen)} href="#">About us</MenuLink>
-        <MenuLink onClick={() => setIsOpen(!isOpen)} href="">How it works</MenuLink>
-        <MenuLink onClick={() => setIsOpen(!isOpen)} href="">Sleeps sounds</MenuLink>
-        <MenuLink onClick={() => setIsOpen(!isOpen)} href="">Sleep quiz</MenuLink>
+        
+        <MenuLink to='/About' onClick={() => setIsOpen(!isOpen)} href="#">About us</MenuLink>
+        <MenuLink to="/hiw" onClick={() => setIsOpen(!isOpen)} href="">How it works</MenuLink>
+        <MenuLink to="/SleepSounds" onClick={() => setIsOpen(!isOpen)} href="">Sleeps sounds</MenuLink>
+        <MenuLink to="SleepQuiz" onClick={() => setIsOpen(!isOpen)} href="">Sleep quiz</MenuLink>
         <LoginButton>Login</LoginButton>
         <SignupButton>Signup</SignupButton>
       </Menu>
-
+      
+      
     </Nav>
+    {/* <div>
+    <Switch>
+          <Route path="/About">
+            <About />
+          </Route>
+           <Route path="/hiw">
+            <Hiw />
+          </Route>
+          <Route path="/SleepQuiz">
+            <SleepQuiz />
+          </Route>
+          <Route path="/SleepSounds">
+            <SleepSounds />
+          </Route> 
+        </Switch>
+    </div> */}
+    </BrowserRouter>
   );
 };
 
 export default Navbar;
 
-const MenuLink = styled.a`
+const MenuLink = styled(Link)`
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
